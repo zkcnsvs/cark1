@@ -4,56 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🎡 Neon Çark Pro</title>
-
 <link rel="stylesheet" href="style.css">
-
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-
 </head>
+
 <body>
 
 <div class="container">
 
-    <h1>🎡 Neon Çark Pro</h1>
+  <h1>🎡 Neon Çark Pro</h1>
 
-    <div class="card">
+  <div class="card">
+    <textarea id="items" rows="8" placeholder="Her satıra bir seçenek yaz">Beşiktaş
+Türkiye
+Fransa
+Liverpool
+Arjantin
+Bayern Munich
+Gaziantep
+Samsunspor
+Atletico Madrid</textarea>
 
-        <textarea
-            id="items"
-            rows="8"
-            placeholder="Her satıra bir seçenek yaz"></textarea>
-
-        <div class="buttons">
-
-            <button onclick="drawWheel()">
-                🔄 Güncelle
-            </button>
-
-            <button onclick="spin()">
-                🎲 Başlat
-            </button>
-
-        </div>
-
+    <div class="buttons">
+      <button onclick="drawWheel()">🔄 Güncelle</button>
+      <button onclick="spin()">🎲 Başlat</button>
     </div>
+  </div>
 
-    <div class="wheel-area">
+  <div class="wheel-area">
+    <div class="arrow">▼</div>
+    <canvas id="wheel" width="500" height="500"></canvas>
+  </div>
 
-        <div class="arrow">▼</div>
-
-        <canvas
-            id="wheel"
-            width="500"
-            height="500">
-        </canvas>
-
-    </div>
-
-    <h2 id="winner"></h2>
+  <h2 id="winner"></h2>
 
 </div>
 
-<script src="script.js"></script>
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h2>🏆 Kazanan</h2>
+    <h1 id="popupWinner"></h1>
+    <button onclick="closePopup()">Kapat</button>
+  </div>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
