@@ -3,26 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neon Çark</title>
+<title>🎡 Neon Çark Pro</title>
+
 <link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
 </head>
 <body>
 
-<h1>🎡 Neon Çark</h1>
+<div class="container">
 
-<textarea id="items" rows="8" placeholder="Her satıra bir seçenek yaz"></textarea>
+    <h1>🎡 Neon Çark Pro</h1>
 
-<br>
+    <div class="card">
 
-<button onclick="drawWheel()">Çarkı Güncelle</button>
-<button onclick="spin()">Başlat</button>
+        <textarea
+            id="items"
+            rows="8"
+            placeholder="Her satıra bir seçenek yaz"></textarea>
 
-<div class="arrow">▼</div>
+        <div class="buttons">
 
-<canvas id="wheel" width="500" height="500"></canvas>
+            <button onclick="drawWheel()">
+                🔄 Güncelle
+            </button>
 
-<h2 id="winner"></h2>
+            <button onclick="spin()">
+                🎲 Başlat
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="wheel-area">
+
+        <div class="arrow">▼</div>
+
+        <canvas
+            id="wheel"
+            width="500"
+            height="500">
+        </canvas>
+
+    </div>
+
+    <h2 id="winner"></h2>
+
+</div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
