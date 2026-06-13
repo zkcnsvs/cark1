@@ -4,7 +4,7 @@ body{
     min-height:100vh;
     background:radial-gradient(circle at top,#1f1f3d,#0b0b12 70%);
     color:white;
-    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;
     text-align:center;
 }
 
@@ -32,12 +32,12 @@ h1{
 textarea{
     width:100%;
     max-width:600px;
-    background:rgba(255,255,255,0.08);
-    color:white;
+    background:rgba(255,255,255,0.92);
+    color:#111;
     border:none;
     border-radius:16px;
     padding:15px;
-    font-size:16px;
+    font-size:18px;
     resize:vertical;
     outline:none;
     box-sizing:border-box;
@@ -65,14 +65,10 @@ button:hover{
     box-shadow:0 0 30px #00e5ff;
 }
 
-.wheel-area{
-    position:relative;
-}
-
 .arrow{
-    font-size:48px;
-    color:#ffd700;
-    text-shadow:0 0 12px #ffd700;
+    font-size:52px;
+    color:#ffffff;
+    text-shadow:0 0 15px #ffffff;
     margin-bottom:10px;
 }
 
@@ -92,4 +88,39 @@ canvas{
     color:#ffd700;
     text-shadow:0 0 10px #ffd700,0 0 25px #ffd700;
     min-height:50px;
+}
+
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.82);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.popup-content{
+    background:#1a1a2e;
+    padding:30px;
+    border-radius:28px;
+    width:80%;
+    max-width:350px;
+    box-shadow:0 0 35px #00e5ff;
+    animation:pop .35s ease;
+}
+
+.popup-content h2{
+    color:#00e5ff;
+}
+
+.popup-content h1{
+    color:#ffd700;
+    font-size:42px;
+    text-shadow:0 0 20px #ffd700;
+}
+
+@keyframes pop{
+    from{transform:scale(.7);opacity:0;}
+    to{transform:scale(1);opacity:1;}
 }
