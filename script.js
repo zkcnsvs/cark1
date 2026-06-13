@@ -2,13 +2,15 @@ const canvas = document.getElementById("wheel");
 const ctx = canvas.getContext("2d");
 
 let rotation = 0;
+let spinning = false;
 
 function getItems(){
     return document
         .getElementById("items")
         .value
         .split("\n")
-        .filter(x => x.trim() !== "");
+        .map(x => x.trim())
+        .filter(x => x !== "");
 }
 
 function drawWheel(){
@@ -51,9 +53,27 @@ function drawWheel(){
         ctx.translate(250,250);
         ctx.rotate((start+end)/2);
 
-        ctx.fillStyle="white";
-        ctx.font="18px Arial";
-        ctx.fillText(item,120,5);
+        const textLength = item.length;
+
+        let fontSize = 18;
+
+        if(textLength > 10) fontSize = 16;
+        if(textLength > 15) fontSize = 14;
+        if(textLength > 20) fontSize = 12;
+        if(textLength > 25) fontSize = 10;
+
+        let displayText = item;
+
+        if(item.length > 28){
+            displayText =
+            item.substring(0,25) + "...";
+        }
+
+        ctx.fillStyle = "white";
+        ctx.font = `bold ${fontSize}px Arial`;
+        ctx.textAlign = "center";
+
+        ctx.fillText(displayText,140,6);
 
         ctx.restore();
     });
@@ -61,24 +81,33 @@ function drawWheel(){
     ctx.beginPath();
     ctx.arc(250,250,220,0,Math.PI*2);
     ctx.strokeStyle="white";
-    ctx.lineWidth=4;
+    ctx.lineWidth=5;
     ctx.stroke();
+
+    localStorage.setItem(
+        "carkItems",
+        document.getElementById("items").value
+    );
 }
 
 function spin(){
 
     const items = getItems();
 
+    if(spinning) return;
+
     if(items.length < 2){
         alert("En az 2 seçenek gir.");
         return;
     }
 
-    rotation +=
-        3600 + Math.random()*360;
+    spinning = true;
 
-    canvas.style.transition =
-        "transform 5s ease-out";
+    const randomAngle =
+        Math.random()*360;
+
+    rotation +=
+        3600 + randomAngle;
 
     canvas.style.transform =
         `rotate(${rotation}deg)`;
@@ -88,16 +117,61 @@ function spin(){
         const angle =
             ((360-(rotation%360))%360);
 
-        const winner =
+        const winnerIndex =
             Math.floor(
                 angle/(360/items.length)
             ) % items.length;
+
+        const winnerText =
+            items[winnerIndex];
 
         document.getElementById(
             "winner"
         ).innerText =
             "🏆 Kazanan: " +
-            items[winner];
+            winnerText;
+
+        document.getElementById(
+            "popupWinner"
+        ).innerText =
+            winnerText;
+
+        document.getElementById(
+            "popup"
+        ).style.display =
+            "flex";
+
+        confetti({
+            particleCount:180,
+            spread:120,
+            origin:{y:0.6}
+        });
+
+        spinning = false;
 
     },5000);
 }
+
+function closePopup(){
+    document.getElementById(
+        "popup"
+    ).style.display =
+        "none";
+}
+
+window.onload = function(){
+
+    const saved =
+        localStorage.getItem(
+            "carkItems"
+        );
+
+    if(saved){
+        document.getElementById(
+            "items"
+        ).value =
+            saved;
+    }
+
+    drawWheel();
+};
