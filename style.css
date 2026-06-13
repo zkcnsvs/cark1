@@ -1,32 +1,95 @@
 body{
-    background:#111;
+    margin:0;
+    padding:20px;
+    min-height:100vh;
+    background:radial-gradient(circle at top,#1f1f3d,#0b0b12 70%);
     color:white;
+    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
     text-align:center;
-    font-family:Arial,sans-serif;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
 }
 
 h1{
-    color:#00ffff;
-    text-shadow:0 0 15px #00ffff;
+    font-size:42px;
+    color:#00e5ff;
+    text-shadow:0 0 10px #00e5ff,0 0 25px #00e5ff;
+    margin-bottom:20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:24px;
+    padding:20px;
+    margin-bottom:25px;
 }
 
 textarea{
-    width:300px;
-    padding:10px;
+    width:100%;
+    max-width:600px;
+    background:rgba(255,255,255,0.08);
+    color:white;
+    border:none;
+    border-radius:16px;
+    padding:15px;
+    font-size:16px;
+    resize:vertical;
+    outline:none;
+    box-sizing:border-box;
+}
+
+.buttons{
+    margin-top:15px;
 }
 
 button{
-    padding:10px 20px;
-    margin:5px;
+    border:none;
+    border-radius:999px;
+    padding:14px 26px;
+    font-size:17px;
+    font-weight:bold;
     cursor:pointer;
+    color:black;
+    background:#00e5ff;
+    box-shadow:0 0 15px #00e5ff;
+    transition:0.25s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 30px #00e5ff;
+}
+
+.wheel-area{
+    position:relative;
 }
 
 .arrow{
-    font-size:40px;
-    margin-top:10px;
+    font-size:48px;
+    color:#ffd700;
+    text-shadow:0 0 12px #ffd700;
+    margin-bottom:10px;
 }
 
 canvas{
-    margin-top:10px;
-    max-width:90vw;
+    width:100%;
+    max-width:500px;
+    height:auto;
+    border-radius:50%;
+    box-shadow:0 0 25px #00ffff,0 0 60px rgba(0,255,255,.5);
+    transition:transform 5s ease-out;
+}
+
+#winner{
+    margin-top:25px;
+    font-size:40px;
+    font-weight:bold;
+    color:#ffd700;
+    text-shadow:0 0 10px #ffd700,0 0 25px #ffd700;
+    min-height:50px;
 }
