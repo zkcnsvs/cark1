@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Çark</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>🎡 Neon Çark</h1>
+
+<textarea id="items" rows="8" placeholder="Her satıra bir seçenek yaz"></textarea>
+
+<br>
+
+<button onclick="drawWheel()">Çarkı Güncelle</button>
+<button onclick="spin()">Başlat</button>
+
+<div class="arrow">▼</div>
+
+<canvas id="wheel" width="500" height="500"></canvas>
+
+<h2 id="winner"></h2>
+
+<script src="script.js"></script>
+</body>
+</html>

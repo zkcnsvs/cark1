@@ -1,0 +1,32 @@
+body{
+    background:#111;
+    color:white;
+    text-align:center;
+    font-family:Arial,sans-serif;
+}
+
+h1{
+    color:#00ffff;
+    text-shadow:0 0 15px #00ffff;
+}
+
+textarea{
+    width:300px;
+    padding:10px;
+}
+
+button{
+    padding:10px 20px;
+    margin:5px;
+    cursor:pointer;
+}
+
+.arrow{
+    font-size:40px;
+    margin-top:10px;
+}
+
+canvas{
+    margin-top:10px;
+    max-width:90vw;
+}
